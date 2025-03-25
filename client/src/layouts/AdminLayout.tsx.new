@@ -64,11 +64,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             </nav>
           </div>
           <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-            <Link href="/">
-              <a className="flex items-center text-gray-600 hover:text-gray-900">
-                <LogOut className="h-5 w-5 mr-2" />
-                <span>Exit Admin</span>
-              </a>
+            <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900">
+              <LogOut className="h-5 w-5 mr-2" />
+              <span>Exit Admin</span>
             </Link>
           </div>
         </div>
@@ -108,11 +106,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             </div>
           </div>
           <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-            <Link href="/">
-              <a className="flex items-center text-gray-600 hover:text-gray-900">
-                <LogOut className="h-5 w-5 mr-2" />
-                <span>Exit Admin</span>
-              </a>
+            <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900">
+              <LogOut className="h-5 w-5 mr-2" />
+              <span>Exit Admin</span>
             </Link>
           </div>
         </div>
