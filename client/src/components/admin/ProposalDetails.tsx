@@ -77,8 +77,8 @@ export function ProposalDetails({ proposal }: ProposalDetailsProps) {
       await apiRequest("PATCH", `/api/proposals/${proposal.id}/status`, { status: newStatus });
       
       toast({
-        title: "Status updated",
-        description: `Proposal status has been updated to ${newStatus}.`,
+        title: "Estado actualizado",
+        description: `El estado de la propuesta se ha actualizado a ${newStatus === 'approved' ? 'aprobada' : newStatus === 'rejected' ? 'rechazada' : 'pendiente'}.`,
       });
       
       // Invalidate proposal query to refresh data
@@ -89,7 +89,7 @@ export function ProposalDetails({ proposal }: ProposalDetailsProps) {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to update proposal status. Please try again.",
+        description: "No se pudo actualizar el estado de la propuesta. Por favor, inténtelo de nuevo.",
         variant: "destructive",
       });
     } finally {
@@ -101,11 +101,11 @@ export function ProposalDetails({ proposal }: ProposalDetailsProps) {
   const renderStatusBadge = (status: string) => {
     switch (status) {
       case "pending":
-        return <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">Pending</Badge>;
+        return <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">Pendiente</Badge>;
       case "approved":
-        return <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">Approved</Badge>;
+        return <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">Aprobada</Badge>;
       case "rejected":
-        return <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200">Rejected</Badge>;
+        return <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200">Rechazada</Badge>;
       default:
         return <Badge variant="outline">{status}</Badge>;
     }
@@ -148,10 +148,10 @@ export function ProposalDetails({ proposal }: ProposalDetailsProps) {
             <Link href="/admin">
               <Button variant="ghost" size="sm" className="mb-2">
                 <ArrowLeft className="h-4 w-4 mr-1" />
-                Back to list
+                Volver a la lista
               </Button>
             </Link>
-            <h1 className="text-2xl font-bold text-gray-900 font-heading">Proposal Details</h1>
+            <h1 className="text-2xl font-bold text-gray-900 font-heading">Detalles de la Propuesta</h1>
             <div className="flex items-center mt-2">
               <Badge className="mr-3">{proposal.referenceNumber}</Badge>
               {renderStatusBadge(proposal.status)}
@@ -160,14 +160,14 @@ export function ProposalDetails({ proposal }: ProposalDetailsProps) {
           <div className="flex space-x-2">
             <Button variant="outline" size="sm" onClick={() => window.print()}>
               <Printer className="h-4 w-4 mr-1" />
-              Print
+              Imprimir
             </Button>
             <Button variant="outline" size="sm">
               <Download className="h-4 w-4 mr-1" />
-              Export PDF
+              Exportar PDF
             </Button>
             <Button size="sm" onClick={() => setStatusDialogOpen(true)}>
-              Change Status
+              Cambiar Estado
             </Button>
           </div>
         </div>
@@ -176,20 +176,20 @@ export function ProposalDetails({ proposal }: ProposalDetailsProps) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-lg">Project Information</CardTitle>
+            <CardTitle className="text-lg">Información del Proyecto</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div>
-                <h3 className="text-sm font-medium text-gray-500">Title</h3>
+                <h3 className="text-sm font-medium text-gray-500">Título</h3>
                 <p className="mt-1 text-base font-medium">{proposal.title}</p>
               </div>
               <div>
-                <h3 className="text-sm font-medium text-gray-500">Acronym</h3>
+                <h3 className="text-sm font-medium text-gray-500">Acrónimo</h3>
                 <p className="mt-1">{proposal.acronym}</p>
               </div>
               <div>
-                <h3 className="text-sm font-medium text-gray-500">Submission Date</h3>
+                <h3 className="text-sm font-medium text-gray-500">Fecha de Envío</h3>
                 <div className="mt-1 flex items-center">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
                   {formatDate(proposal.createdAt)}
@@ -258,11 +258,11 @@ export function ProposalDetails({ proposal }: ProposalDetailsProps) {
 
       <Tabs defaultValue="summary" className="mb-6">
         <TabsList className="mb-4">
-          <TabsTrigger value="summary">Summary</TabsTrigger>
-          <TabsTrigger value="team">Research Team</TabsTrigger>
-          <TabsTrigger value="details">Project Details</TabsTrigger>
-          <TabsTrigger value="budget">Budget</TabsTrigger>
-          <TabsTrigger value="final">Final Details</TabsTrigger>
+          <TabsTrigger value="summary">Resumen</TabsTrigger>
+          <TabsTrigger value="team">Equipo Investigador</TabsTrigger>
+          <TabsTrigger value="details">Detalles del Proyecto</TabsTrigger>
+          <TabsTrigger value="budget">Presupuesto</TabsTrigger>
+          <TabsTrigger value="final">Detalles Finales</TabsTrigger>
         </TabsList>
 
         {/* Summary Tab */}
