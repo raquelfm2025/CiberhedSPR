@@ -1260,59 +1260,16 @@ export function Section5FinalDetails() {
   
   return (
     <div>
-      <h3 className="text-lg font-medium text-gray-900 font-heading border-b pb-3 mb-6">Final Details</h3>
+      <h3 className="text-lg font-medium text-gray-900 font-heading border-b pb-3 mb-6">Detalles Finales</h3>
       
       <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">I. Future Plan</h4>
-        <p className="text-xs text-gray-500 mb-2">Continuation after the end of the project, internationalization and potential transfer plan</p>
-        <Textarea
-          id="project-future-plan"
-          value={formData.futurePlan}
-          onChange={(e) => updateFormField('futurePlan', e.target.value)}
-          className="min-h-[150px]"
-          required
-        />
-      </div>
-      
-      <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">J. Industrial and Intellectual Property</h4>
-        <p className="text-xs text-gray-500 mb-2">List any patent to be used with information about the co-owners</p>
-        <Textarea
-          id="project-ipr"
-          value={formData.ipr}
-          onChange={(e) => updateFormField('ipr', e.target.value)}
-          className="min-h-[100px]"
-        />
-      </div>
-      
-      <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">K. Ethical Approval</h4>
-        <p className="text-sm mb-3">Will your project involve experiments requiring ethical approval/s?</p>
-        <RadioGroup 
-          value={formData.ethicalApproval ? "yes" : "no"} 
-          onValueChange={(value) => updateFormField('ethicalApproval', value === "yes")}
-          className="flex space-x-4"
-        >
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="yes" id="ethical-yes" />
-            <Label htmlFor="ethical-yes" className="font-normal">Yes</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="no" id="ethical-no" />
-            <Label htmlFor="ethical-no" className="font-normal">No</Label>
-          </div>
-        </RadioGroup>
-        <p className="mt-3 text-sm text-gray-600">Should this application result in the granting of an award, a copy of the ethical human and/or animal approval/s and the informed consent (if apply) must be sent before the final approval of the award.</p>
-      </div>
-      
-      <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">Signatures</h4>
-        <p className="text-sm text-gray-600 mb-3">By submitting this form, you confirm that all listed participants have agreed to participate in this project proposal.</p>
+        <h4 className="text-md font-medium text-gray-900 mb-2">Firmas</h4>
+        <p className="text-sm text-gray-600 mb-3">Al enviar este formulario, confirma que todos los participantes mencionados han aceptado participar en esta propuesta de proyecto.</p>
         
         <div className="border rounded-md p-4">
           <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
             <div className="sm:col-span-3">
-              <Label htmlFor="signature-pi-coordinator">PI Coordinator</Label>
+              <Label htmlFor="signature-pi-coordinator">IP Coordinador</Label>
               <Input
                 id="signature-pi-coordinator"
                 value={formData.signatures.piCoordinator}
@@ -1322,7 +1279,7 @@ export function Section5FinalDetails() {
               />
             </div>
             <div className="sm:col-span-3">
-              <Label htmlFor="signature-pi-ciber">PI of the CIBER research group</Label>
+              <Label htmlFor="signature-pi-ciber">IP del grupo de investigación CIBER</Label>
               <Input
                 id="signature-pi-ciber"
                 value={formData.signatures.piCiber}
@@ -1335,7 +1292,7 @@ export function Section5FinalDetails() {
           
           <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 mt-4">
             <div className="sm:col-span-3">
-              <Label htmlFor="signature-copi">Co-PI of the collaboration</Label>
+              <Label htmlFor="signature-copi">Co-IP de la colaboración</Label>
               <Input
                 id="signature-copi"
                 value={formData.signatures.coPi}
@@ -1344,7 +1301,7 @@ export function Section5FinalDetails() {
               />
             </div>
             <div className="sm:col-span-3">
-              <Label htmlFor="signature-pi-ciber2">PI of the CIBER research group</Label>
+              <Label htmlFor="signature-pi-ciber2">IP del grupo de investigación CIBER</Label>
               <Input
                 id="signature-pi-ciber2"
                 value={formData.signatures.piCiber2}
@@ -1357,15 +1314,47 @@ export function Section5FinalDetails() {
       </div>
       
       <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">Appendix</h4>
-        <p className="text-xs text-gray-500 mb-2">Data management plan: type and format of data, access procedure, ownership, repository, ethical/legal requirements</p>
+        <h4 className="text-md font-medium text-gray-900 mb-2">Aprobación ética</h4>
+        <p className="text-sm mb-3">¿Su proyecto implica experimentos que requieren aprobación/es ética/s?</p>
+        <RadioGroup 
+          value={formData.ethicalApproval ? "yes" : "no"} 
+          onValueChange={(value) => updateFormField('ethicalApproval', value === "yes")}
+          className="flex space-x-4"
+        >
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="yes" id="ethical-yes" />
+            <Label htmlFor="ethical-yes" className="font-normal">Sí</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="no" id="ethical-no" />
+            <Label htmlFor="ethical-no" className="font-normal">No</Label>
+          </div>
+        </RadioGroup>
+        <p className="mt-3 text-sm text-gray-600">En caso de que esta solicitud resulte en la concesión de una ayuda, deberá enviarse una copia de la(s) aprobación(es) ética(s) para humanos y/o animales y el consentimiento informado (si corresponde) antes de la aprobación final de la ayuda.</p>
+      </div>
+      
+      <div className="bg-gray-50 p-4 rounded-md mb-6">
+        <h4 className="text-md font-medium text-gray-900 mb-2">Anexo</h4>
+        <p className="text-xs text-gray-500 mb-2">Plan de gestión de datos: tipo y formato de datos, procedimiento de acceso, propiedad, repositorio, requisitos éticos/legales</p>
         <Textarea
           id="project-appendix"
           value={formData.appendix}
           onChange={(e) => updateFormField('appendix', e.target.value)}
           className="min-h-[150px]"
+          placeholder="Describa cómo se gestionarán los datos generados en este proyecto. Incluya información sobre los tipos de datos que se recopilarán, cómo se almacenarán y compartirán, y cómo se garantizará el cumplimiento de requisitos éticos y legales."
           required
         />
+      </div>
+      
+      <div className="bg-gray-50 p-4 rounded-md mb-6">
+        <h4 className="text-md font-medium text-gray-900 mb-2">Declaración final</h4>
+        <p className="text-sm text-gray-600 mb-3">Al enviar esta propuesta, confirmo que:</p>
+        <ul className="list-disc pl-5 text-sm text-gray-600 space-y-2">
+          <li>Toda la información proporcionada es correcta y completa.</li>
+          <li>Todos los investigadores mencionados han acordado participar en este proyecto.</li>
+          <li>Entiendo que cualquier información falsa o engañosa podría resultar en el rechazo de la propuesta.</li>
+          <li>Me comprometo a seguir las normas y regulaciones de CIBEREHD si se concede la financiación.</li>
+        </ul>
       </div>
     </div>
   );
@@ -1385,7 +1374,7 @@ export function NavigationButtons() {
           variant="outline" 
           onClick={() => setCurrentStep(currentStep - 1)}
         >
-          <ArrowLeft className="w-4 h-4 mr-2" /> Previous
+          <ArrowLeft className="w-4 h-4 mr-2" /> Anterior
         </Button>
       )}
       
@@ -1395,7 +1384,7 @@ export function NavigationButtons() {
           onClick={() => setCurrentStep(currentStep + 1)}
           className="ml-auto"
         >
-          Next <ArrowRight className="w-4 h-4 ml-2" />
+          Siguiente <ArrowRight className="w-4 h-4 ml-2" />
         </Button>
       )}
       
@@ -1404,7 +1393,7 @@ export function NavigationButtons() {
           type="submit" 
           className="ml-auto bg-green-600 hover:bg-green-700"
         >
-          Submit Proposal <Check className="w-4 h-4 ml-2" />
+          Enviar Propuesta <Check className="w-4 h-4 ml-2" />
         </Button>
       )}
     </div>

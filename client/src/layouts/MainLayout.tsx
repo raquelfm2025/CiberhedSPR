@@ -21,7 +21,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 </div>
               </Link>
               <div className="ml-4 text-sm font-medium text-gray-500">
-                Intramural Projects Submission System
+                Sistema de Presentación de Proyectos Intramurales
               </div>
             </div>
             <div className="flex items-center space-x-4">
