@@ -28,11 +28,11 @@ export function ProposalList({ proposals }: ProposalListProps) {
   const renderStatusBadge = (status: string) => {
     switch (status) {
       case "pending":
-        return <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">Pending</Badge>;
+        return <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">Pendiente</Badge>;
       case "approved":
-        return <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">Approved</Badge>;
+        return <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">Aprobada</Badge>;
       case "rejected":
-        return <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200">Rejected</Badge>;
+        return <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200">Rechazada</Badge>;
       default:
         return <Badge variant="outline">{status}</Badge>;
     }
@@ -44,13 +44,13 @@ export function ProposalList({ proposals }: ProposalListProps) {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Reference</TableHead>
-              <TableHead>Title</TableHead>
-              <TableHead>PI</TableHead>
-              <TableHead>Submission Date</TableHead>
-              <TableHead>Budget</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead>Referencia</TableHead>
+              <TableHead>Título</TableHead>
+              <TableHead>IP</TableHead>
+              <TableHead>Fecha de Envío</TableHead>
+              <TableHead>Presupuesto</TableHead>
+              <TableHead>Estado</TableHead>
+              <TableHead className="text-right">Acciones</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -61,22 +61,22 @@ export function ProposalList({ proposals }: ProposalListProps) {
                   {proposal.title}
                 </TableCell>
                 <TableCell>
-                  {typeof proposal.projectCoordinator === 'object' 
-                    ? proposal.projectCoordinator.name 
-                    : 'Unknown'}
+                  {proposal.projectCoordinator && typeof proposal.projectCoordinator === 'object' 
+                    ? (proposal.projectCoordinator as any).name 
+                    : 'Desconocido'}
                 </TableCell>
                 <TableCell>{formatDate(proposal.createdAt)}</TableCell>
                 <TableCell>
-                  {typeof proposal.budget === 'object' 
-                    ? formatCurrency(proposal.budget.grandTotal) 
-                    : '€0.00'}
+                  {proposal.budget && typeof proposal.budget === 'object' 
+                    ? formatCurrency((proposal.budget as any).grandTotal) 
+                    : '€0,00'}
                 </TableCell>
                 <TableCell>{renderStatusBadge(proposal.status)}</TableCell>
                 <TableCell className="text-right">
                   <Link href={`/admin/proposals/${proposal.id}`}>
                     <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
                       <EyeIcon className="h-4 w-4" />
-                      <span className="sr-only">View details</span>
+                      <span className="sr-only">Ver detalles</span>
                     </Button>
                   </Link>
                 </TableCell>

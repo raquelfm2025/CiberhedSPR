@@ -27,50 +27,50 @@ export function AdminDashboard() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-6 font-heading">Admin Dashboard</h1>
+      <h1 className="text-2xl font-bold text-gray-900 mb-6 font-heading">Panel de Administración</h1>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Proposals</CardTitle>
+            <CardTitle className="text-sm font-medium">Propuestas Totales</CardTitle>
             <FileText className="h-4 w-4 text-gray-500" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{isLoading ? <Loader2 className="h-6 w-6 animate-spin" /> : totalCount}</div>
-            <p className="text-xs text-gray-500">All submitted proposals</p>
+            <p className="text-xs text-gray-500">Todas las propuestas enviadas</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Review</CardTitle>
+            <CardTitle className="text-sm font-medium">Pendientes</CardTitle>
             <FilePlus className="h-4 w-4 text-amber-500" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{isLoading ? <Loader2 className="h-6 w-6 animate-spin" /> : pendingCount}</div>
-            <p className="text-xs text-gray-500">Awaiting evaluation</p>
+            <p className="text-xs text-gray-500">En espera de evaluación</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Approved</CardTitle>
+            <CardTitle className="text-sm font-medium">Aprobadas</CardTitle>
             <CheckCircle className="h-4 w-4 text-green-500" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{isLoading ? <Loader2 className="h-6 w-6 animate-spin" /> : approvedCount}</div>
-            <p className="text-xs text-gray-500">Ready for funding</p>
+            <p className="text-xs text-gray-500">Listas para financiación</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Rejected</CardTitle>
+            <CardTitle className="text-sm font-medium">Rechazadas</CardTitle>
             <XCircle className="h-4 w-4 text-red-500" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{isLoading ? <Loader2 className="h-6 w-6 animate-spin" /> : rejectedCount}</div>
-            <p className="text-xs text-gray-500">Not approved</p>
+            <p className="text-xs text-gray-500">No aprobadas</p>
           </CardContent>
         </Card>
       </div>
@@ -78,10 +78,10 @@ export function AdminDashboard() {
       <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab}>
         <div className="flex justify-between items-center mb-4">
           <TabsList>
-            <TabsTrigger value="all">All Proposals</TabsTrigger>
-            <TabsTrigger value="pending">Pending</TabsTrigger>
-            <TabsTrigger value="approved">Approved</TabsTrigger>
-            <TabsTrigger value="rejected">Rejected</TabsTrigger>
+            <TabsTrigger value="all">Todas las Propuestas</TabsTrigger>
+            <TabsTrigger value="pending">Pendientes</TabsTrigger>
+            <TabsTrigger value="approved">Aprobadas</TabsTrigger>
+            <TabsTrigger value="rejected">Rechazadas</TabsTrigger>
           </TabsList>
         </div>
 
@@ -91,7 +91,7 @@ export function AdminDashboard() {
               <CardContent className="pt-6">
                 <div className="flex items-center justify-center p-12">
                   <Loader2 className="h-8 w-8 animate-spin text-primary-500" />
-                  <span className="ml-2 text-gray-500">Loading proposals...</span>
+                  <span className="ml-2 text-gray-500">Cargando propuestas...</span>
                 </div>
               </CardContent>
             </Card>
@@ -102,8 +102,8 @@ export function AdminDashboard() {
               <CardContent className="pt-6">
                 <div className="text-center p-12">
                   <FileText className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-                  <h3 className="text-lg font-medium text-gray-900 mb-1">No proposals found</h3>
-                  <p className="text-gray-500">There are no proposals matching the selected filter.</p>
+                  <h3 className="text-lg font-medium text-gray-900 mb-1">No se encontraron propuestas</h3>
+                  <p className="text-gray-500">No hay propuestas que coincidan con el filtro seleccionado.</p>
                 </div>
               </CardContent>
             </Card>
