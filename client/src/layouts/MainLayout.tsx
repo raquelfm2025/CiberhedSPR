@@ -48,8 +48,17 @@ export default function MainLayout({ children }: MainLayoutProps) {
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-sm text-gray-500">
-            <p>&copy; {new Date().getFullYear()} CIBEREHD. All rights reserved.</p>
+          <div className="flex flex-col items-center justify-center space-y-3">
+            <div className="flex items-center">
+              <img 
+                src="/images/smartpeerreviewers-logo.png" 
+                alt="SmartPeerReviewers Logo" 
+                className="h-10"
+              />
+            </div>
+            <div className="text-center text-sm text-gray-500">
+              <p>&copy; {new Date().getFullYear()} CIBEREHD. All rights reserved.</p>
+            </div>
           </div>
         </div>
       </footer>
