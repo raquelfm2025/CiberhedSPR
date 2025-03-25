@@ -750,61 +750,65 @@ export function Section3ProjectDetails() {
   
   return (
     <div>
-      <h3 className="text-lg font-medium text-gray-900 font-heading border-b pb-3 mb-6">Project Details</h3>
-      <p className="text-sm text-gray-600 mb-6">Limited to 6 pages (Arial/Calibri font size 11)</p>
+      <h3 className="text-lg font-medium text-gray-900 font-heading border-b pb-3 mb-6">Detalles del Proyecto</h3>
+      <p className="text-sm text-gray-600 mb-6">Limitado a 6 páginas (Fuente Arial/Calibri tamaño 11)</p>
       
       <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">A. Summary</h4>
-        <p className="text-xs text-gray-500 mb-2">Maximum 300 words</p>
+        <h4 className="text-md font-medium text-gray-900 mb-2">A. Resumen</h4>
+        <p className="text-xs text-gray-500 mb-2">Máximo 300 palabras</p>
         <Textarea
           id="project-summary"
           value={formData.summary}
           onChange={(e) => updateFormField('summary', e.target.value)}
           className="min-h-[100px]"
+          placeholder="Presente un resumen claro y conciso del proyecto propuesto, destacando su relevancia, objetivos principales y resultados esperados."
           required
         />
         <WordCounter text={formData.summary} limit={300} className="mt-1" />
       </div>
       
       <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">B. Objectives</h4>
-        <p className="text-xs text-gray-500 mb-2">Maximum 500 words</p>
+        <h4 className="text-md font-medium text-gray-900 mb-2">B. Objetivos</h4>
+        <p className="text-xs text-gray-500 mb-2">Máximo 500 palabras</p>
         <Textarea
           id="project-objectives"
           value={formData.objectives}
           onChange={(e) => updateFormField('objectives', e.target.value)}
           className="min-h-[150px]"
+          placeholder="Describa los objetivos generales y específicos del proyecto. Cada objetivo debe ser concreto, medible, alcanzable, relevante y con un plazo de tiempo definido."
           required
         />
         <WordCounter text={formData.objectives} limit={500} className="mt-1" />
       </div>
       
       <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">C. State of the Art. Justification of the Project</h4>
-        <p className="text-xs text-gray-500 mb-2">Review of relevant literature and current knowledge, relevance of the scientific/clinical problem, how this project will contribute</p>
+        <h4 className="text-md font-medium text-gray-900 mb-2">C. Estado del Arte y Justificación del Proyecto</h4>
+        <p className="text-xs text-gray-500 mb-2">Revisión de la literatura relevante, conocimiento actual, importancia del problema científico/clínico y cómo este proyecto contribuirá al campo</p>
         <Textarea
           id="project-state-of-art"
           value={formData.stateOfArt}
           onChange={(e) => updateFormField('stateOfArt', e.target.value)}
           className="min-h-[200px]"
+          placeholder="Describa el estado actual del conocimiento en el área y explique cómo su proyecto avanzará en el campo. Destaque la relevancia del problema científico o clínico que aborda y cómo su investigación contribuirá a resolverlo."
           required
         />
       </div>
       
       <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">D. Detailed Workplan</h4>
-        <p className="text-xs text-gray-500 mb-2">Structure of work plan, timing, deliverables and milestones</p>
+        <h4 className="text-md font-medium text-gray-900 mb-2">D. Plan de Trabajo Detallado</h4>
+        <p className="text-xs text-gray-500 mb-2">Estructura del plan de trabajo, cronograma, entregables e hitos</p>
         <Textarea
           id="project-workplan"
           value={formData.workplan}
           onChange={(e) => updateFormField('workplan', e.target.value)}
           className="min-h-[200px]"
+          placeholder="Describa detalladamente la metodología y el diseño experimental. Divida el trabajo en paquetes de trabajo (workpackages) o tareas específicas. Incluya los entregables e hitos principales en un cronograma realista."
           required
         />
         <div className="mt-4">
           <FileUpload
-            label="Gantt Chart or Similar (optional)"
-            description="PDF, Excel or image file, max 5MB"
+            label="Diagrama de Gantt o Similar (opcional)"
+            description="Archivo PDF, Excel o imagen, máx. 5MB"
             value={ganttFile}
             onChange={handleGanttFileChange}
             accept=".pdf,.xls,.xlsx,.png,.jpg,.jpeg"
@@ -814,27 +818,91 @@ export function Section3ProjectDetails() {
       </div>
       
       <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">E. Novelty, Originality and Innovation of the Proposal</h4>
+        <h4 className="text-md font-medium text-gray-900 mb-2">E. Novedad, Originalidad e Innovación de la Propuesta</h4>
+        <p className="text-xs text-gray-500 mb-2">Aspectos innovadores del proyecto y su potencial impacto</p>
         <Textarea
           id="project-innovation"
           value={formData.innovation}
           onChange={(e) => updateFormField('innovation', e.target.value)}
           className="min-h-[150px]"
+          placeholder="Explique los aspectos innovadores de su propuesta. ¿Qué hace que este proyecto sea único y original? ¿Qué nuevos conocimientos, métodos o enfoques aportará al campo? Describa el potencial impacto de los resultados esperados."
           required
         />
       </div>
       
       <div className="bg-gray-50 p-4 rounded-md mb-6">
-        <h4 className="text-md font-medium text-gray-900 mb-2">F. Coordination and Added Value of the Consortium</h4>
-        <p className="text-xs text-gray-500 mb-2">Specific objectives of each group, added value, coordination mechanisms</p>
+        <h4 className="text-md font-medium text-gray-900 mb-2">F. Coordinación y Valor Añadido del Consorcio</h4>
+        <p className="text-xs text-gray-500 mb-2">Objetivos específicos de cada grupo, valor añadido, mecanismos de coordinación</p>
         <Textarea
           id="project-coordination"
           value={formData.coordination}
           onChange={(e) => updateFormField('coordination', e.target.value)}
           className="min-h-[150px]"
+          placeholder="Describa cómo se organizará la colaboración entre los diferentes grupos participantes. Especifique la contribución de cada grupo al proyecto y explique el valor añadido de esta colaboración. Detalle los mecanismos de coordinación que asegurarán una ejecución eficiente del proyecto."
           required
         />
       </div>
+      
+      <div className="bg-gray-50 p-4 rounded-md mb-6">
+        <h4 className="text-md font-medium text-gray-900 mb-2">G. Plan de Futuro y Sostenibilidad</h4>
+        <p className="text-xs text-gray-500 mb-2">Estrategia para la continuidad del proyecto, financiación futura, proyección</p>
+        <Textarea
+          id="project-future-plan"
+          value={formData.futurePlan}
+          onChange={(e) => updateFormField('futurePlan', e.target.value)}
+          className="min-h-[150px]"
+          placeholder="Explique la estrategia a largo plazo para el proyecto. ¿Cómo se aprovechará esta financiación inicial para obtener financiación adicional en el futuro? ¿Qué planes hay para continuar y expandir la investigación después de este proyecto? Describa las posibles aplicaciones y transferencia de resultados."
+          required
+        />
+      </div>
+      
+      <div className="bg-gray-50 p-4 rounded-md mb-6">
+        <h4 className="text-md font-medium text-gray-900 mb-2">H. Propiedad Intelectual e Industrial</h4>
+        <p className="text-xs text-gray-500 mb-2">Información sobre patentes, licencias y protección de resultados (si aplica)</p>
+        <Textarea
+          id="project-ipr"
+          value={formData.ipr || ''}
+          onChange={(e) => updateFormField('ipr', e.target.value)}
+          className="min-h-[100px]"
+          placeholder="Si aplica, describa cualquier consideración relacionada con la propiedad intelectual o industrial. ¿Hay patentes existentes o previstas? ¿Existen acuerdos de licencia relevantes? ¿Cómo se protegerán y compartirán los resultados del proyecto?"
+        />
+      </div>
+      
+      <div className="bg-gray-50 p-4 rounded-md mb-6">
+        <h4 className="text-md font-medium text-gray-900 mb-2">I. Aspectos Éticos</h4>
+        <p className="text-xs text-gray-500 mb-2">Declaración sobre aprobaciones éticas necesarias</p>
+        <div className="space-y-4">
+          <div>
+            <Label>¿El proyecto requiere aprobación por un comité de ética?</Label>
+            <RadioGroup 
+              value={formData.ethicalApproval ? "yes" : "no"} 
+              onValueChange={(value) => updateFormField('ethicalApproval', value === "yes")}
+              className="flex space-x-4 mt-2"
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="yes" id="ethics-yes" />
+                <Label htmlFor="ethics-yes" className="font-normal">Sí</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="no" id="ethics-no" />
+                <Label htmlFor="ethics-no" className="font-normal">No</Label>
+              </div>
+            </RadioGroup>
+          </div>
+          
+          {formData.ethicalApproval && (
+            <Textarea
+              id="project-appendix"
+              value={formData.appendix}
+              onChange={(e) => updateFormField('appendix', e.target.value)}
+              className="min-h-[100px]"
+              placeholder="Describa brevemente los aspectos éticos relevantes para este proyecto y el estado de las aprobaciones necesarias. Si ya cuenta con aprobaciones, indique los números de referencia o fechas."
+              required
+            />
+          )}
+        </div>
+      </div>
+      
     </div>
   );
 }
